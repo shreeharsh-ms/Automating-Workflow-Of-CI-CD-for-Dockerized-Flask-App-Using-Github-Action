@@ -54,7 +54,9 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
       - name: Confirm image pushed
-        run: echo "✅ Docker image pushed: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest"
+        run: |
+          echo "Docker image pushed successfully: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest"
+          echo "Image digest: ${{ steps.docker_build.outputs.digest }}"
 
   deploy:
     needs: build-and-publish-docker-image
