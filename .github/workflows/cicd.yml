@@ -1,5 +1,3 @@
-# cicd.yaml
-
 name: CI/CD Pipeline for Dockerized Flask App
 
 on:
@@ -48,6 +46,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
+        id: build  # ✅ give this step an ID so outputs can be referenced
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -56,7 +55,6 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
       - name: Image digest
-        id: image_digest
         run: echo "Image digest: ${{ steps.build.outputs.digest }}"
 
   deploy:
