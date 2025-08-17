@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
-        id: build  # ✅ give this step an ID so outputs can be referenced
+        id: build
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -54,8 +54,8 @@ jobs:
           platforms: linux/amd64
           tags: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
-      - name: Image digest
-        run: echo "Image digest: ${{ steps.build.outputs.digest }}"
+      - name: Confirm image pushed
+        run: echo "✅ Docker image pushed: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest"
 
   deploy:
     needs: build-and-publish-docker-image
