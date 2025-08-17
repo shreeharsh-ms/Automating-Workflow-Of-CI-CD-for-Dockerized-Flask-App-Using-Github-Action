@@ -1,0 +1,13 @@
+prefix=/Users/shreeharshmshivpuje/MLpr/Docker/DOCKERCICD/Automating-Workflow-Of-CI-CD-for-Dockerized-Flask-App-Using-Github-Action/venv
+exec_prefix=/Users/shreeharshmshivpuje/MLpr/Docker/DOCKERCICD/Automating-Workflow-Of-CI-CD-for-Dockerized-Flask-App-Using-Github-Action/venv
+libdir=/Users/shreeharshmshivpuje/MLpr/Docker/DOCKERCICD/Automating-Workflow-Of-CI-CD-for-Dockerized-Flask-App-Using-Github-Action/venv/lib
+sharedlibdir=/Users/shreeharshmshivpuje/MLpr/Docker/DOCKERCICD/Automating-Workflow-Of-CI-CD-for-Dockerized-Flask-App-Using-Github-Action/venv/lib
+includedir=/Users/shreeharshmshivpuje/MLpr/Docker/DOCKERCICD/Automating-Workflow-Of-CI-CD-for-Dockerized-Flask-App-Using-Github-Action/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
